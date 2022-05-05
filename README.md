@@ -1,3 +1,3 @@
 ## A Facebook lookalike app 
 
-    Created with: Rect , Typescript and MUI
+    Created with React, Typescript and MUI.
