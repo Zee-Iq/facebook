@@ -4,6 +4,8 @@ import {
   Avatar,
   Badge,
   InputBase,
+  Menu,
+  MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -11,6 +13,7 @@ import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import { Box } from "@mui/system";
 import { theme } from "../theme";
 import { Mail, Notifications } from "@mui/icons-material";
+import { useState } from "react";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -24,25 +27,27 @@ const Search = styled("div")(({ theme: any }) => ({
   width: "40%",
 }));
 
-const Icons = styled(Box)(({ theme:any }) => ({
+const Icons = styled(Box)(({ theme: any }) => ({
   display: "none",
   alignItems: "center",
   gap: "20px",
-  [theme.breakpoints.up("sm")]:{
-    display:"flex"
-  }
+  [theme.breakpoints.up("sm")]: {
+    display: "flex",
+  },
 }));
-const UserBox = styled(Box)(({ theme:any }) => ({
+/* MOBILE VERSION */
+const UserBox = styled(Box)(({ theme: any }) => ({
   display: "flex",
   alignItems: "center",
   gap: "10px",
-  [theme.breakpoints.up("sm")]:{
-    display:"none"
-  }
-  
+  [theme.breakpoints.up("sm")]: {
+    display: "none",
+  },
 }));
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -55,7 +60,7 @@ const Navbar = () => {
         </Search>
         <Icons>
           <Badge badgeContent={1} color="error">
-            <Mail  />
+            <Mail />
           </Badge>
           <Badge badgeContent={4} color="error">
             <Notifications />
@@ -63,16 +68,43 @@ const Navbar = () => {
           <Avatar
             sx={{ width: 30, height: 30 }}
             src="https://avatars.githubusercontent.com/u/86056842?v=4"
+            onClick={(e) => setOpen(true)}
           />
         </Icons>
-        <UserBox>
-        <Avatar
+
+        {/* CODE FOR MOBILE VERSION */}
+        <UserBox onClick={(e) => setOpen(true)}>
+          <Avatar
             sx={{ width: 30, height: 30 }}
             src="https://avatars.githubusercontent.com/u/86056842?v=4"
           />
           <Typography variant="body1">Zeeshan</Typography>
         </UserBox>
       </StyledToolbar>
+
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        /* DROPDOWNMENU IS GOING TO CLOSE OR OPEN DEPENDING ON USESTATE */
+        open={open}
+        
+        /* CLOSING METHOG */
+        /* WHEN CLICKING SOMEWHERE ELSE THEN MENU IS GOING TO CLOSE */
+
+        onClose={(e) => setOpen(false)}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 };
