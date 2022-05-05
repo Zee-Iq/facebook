@@ -1,79 +1,21 @@
-import { Button, Typography } from "@mui/material";
-import SettingsIcon from "@mui/icons-material/Settings";
-import styled from "@emotion/styled";
-const App = () => {
-  const CrimsonButton = styled(Button)({
-    backgroundColor: "crimson",
-    color: "white",
-    m: 5,
-    "&:hover": {
-      backgroundColor: "black",
-    },
-    "&:disabled": {
-      backgroundColor: "gray",
-      color: "white",
-    },
-  });
+import { Stack } from "@mui/material";
+import { Box } from "@mui/system";
+import Feed from "./Components/Feed";
+import Navbar from "./Components/Navbar";
+import Rightbar from "./Components/Rightbar";
+import Sidebar from "./Components/Sidebar";
 
+const App = () => {
   return (
-    <div>
-      <Button 
-       size="medium"
-        /* color="otherColor" */
-         variant="contained">
-        Text
-      </Button>
-      <Button
-        startIcon={<SettingsIcon fontSize="small" color="success" />}
-        variant="contained"
-      >
-        new post
-      </Button>
-      <Button disabled variant="outlined">
-        outlined
-      </Button>
-      <Typography variant="h3" component="p">
-        something
-      </Typography>
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "crimson",
-          color: "crimson",
-          m: 5,
-          "&:hover": {
-            backgroundColor: "black",
-          },
-          "&:disabled": {
-            backgroundColor: "gray",
-            color: "white",
-          },
-        }}
-      >
-        {" "}
-        unique{" "}
-      </Button>
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "crimson",
-          color: "crimson",
-          m: 5,
-          "&:hover": {
-            backgroundColor: "black",
-          },
-          "&:disabled": {
-            backgroundColor: "gray",
-            color: "white",
-          },
-        }}
-      >
-        {" "}
-        unique{" "}
-      </Button>
-      <CrimsonButton>first custom button</CrimsonButton>
-    </div>
+    <Box>
+      <Navbar />
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+        <Sidebar />
+        <Feed />
+        <Rightbar />
+      </Stack>
+    </Box>
   );
-}
+};
 
 export default App;
