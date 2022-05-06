@@ -51,7 +51,11 @@ const Navbar = () => {
   return (
     <AppBar position="sticky">
       <StyledToolbar>
-        <Typography sx={{ display: { xs: "none", sm: "block" } }} variant="h6">
+        <Typography
+          title="Home"
+          sx={{ cursor: "pointer", display: { xs: "none", sm: "block" } }}
+          variant="h6"
+        >
           FAKEBOOK
         </Typography>
         <FacebookRoundedIcon sx={{ display: { xs: "block", sm: "none" } }} />
@@ -59,21 +63,32 @@ const Navbar = () => {
           <InputBase placeholder="search..." />{" "}
         </Search>
         <Icons>
-          <Badge badgeContent={1} color="error">
+          <Badge
+            sx={{ cursor: "pointer" }}
+            title="Messages"
+            badgeContent={1}
+            color="error"
+          >
             <Mail />
           </Badge>
-          <Badge badgeContent={4} color="error">
+          <Badge
+            sx={{ cursor: "pointer" }}
+            title="Notifications"
+            badgeContent={4}
+            color="error"
+          >
             <Notifications />
           </Badge>
           <Avatar
-            sx={{ width: 30, height: 30 }}
+            
+            sx={{ cursor: "pointer", width: 30, height: 30 }}
             src="https://avatars.githubusercontent.com/u/86056842?v=4"
             onClick={(e) => setOpen(true)}
           />
         </Icons>
 
         {/* CODE FOR MOBILE VERSION */}
-        <UserBox onClick={(e) => setOpen(true)}>
+        <UserBox title="Home" onClick={(e) => setOpen(true)}>
           <Avatar
             sx={{ width: 30, height: 30 }}
             src="https://avatars.githubusercontent.com/u/86056842?v=4"
@@ -87,7 +102,6 @@ const Navbar = () => {
         aria-labelledby="demo-positioned-button"
         /* DROPDOWNMENU IS GOING TO CLOSE OR OPEN DEPENDING ON USESTATE */
         open={open}
-        
         /* CLOSING METHOG */
         /* WHEN CLICKING SOMEWHERE ELSE THEN MENU IS GOING TO CLOSE */
 

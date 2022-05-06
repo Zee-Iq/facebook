@@ -1,5 +1,6 @@
 import { Stack } from "@mui/material";
 import { Box } from "@mui/system";
+import Add from "./Components/Add";
 import Feed from "./Components/Feed";
 import Navbar from "./Components/Navbar";
 import Rightbar from "./Components/Rightbar";
@@ -14,6 +15,7 @@ const App = () => {
         <Feed />
         <Rightbar />
       </Stack>
+      <Add />
     </Box>
   );
 };
