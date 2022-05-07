@@ -11,6 +11,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import { style } from "@mui/system";
 import React from "react";
 
 const Rightbar = () => {
@@ -37,9 +38,9 @@ const Rightbar = () => {
         <Typography variant="h6" fontWeight={100} mt={3} mb={3}>
           Recent Posts
         </Typography>
-        <ImageList cols={3} rowHeight={100} gap={7}>
-          <ImageListItem>
-            <img
+        <ImageList  cols={3} rowHeight={100} gap={7}>
+          <ImageListItem >
+            <img 
               src="https://img.freepik.com/fotos-kostenlos/draufsicht-gesundes-essen-fuer-immunitaet-die-zusammensetzung-erhoeht_23-2148890265.jpg?t=st=1651860704~exp=1651861304~hmac=233c34d590a3827d49919ecc7f09bcad8a6d007b44ee3f181d85c08165d2dcd3&w=1380"
               alt="An image of mixed fruits and vegetables taken from birdseye perspective"
             />
